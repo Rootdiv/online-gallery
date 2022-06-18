@@ -23,6 +23,7 @@ export const renderPhoto = (photoWrapper, photo) => {
   const authorName = createElem('span', {
     textContent: photo.user.name,
   });
+
   author.append(avatarAuthor, authorName);
 
   const photoControl = createElem('div', {
@@ -34,6 +35,10 @@ export const renderPhoto = (photoWrapper, photo) => {
     className: 'photo__like',
     textContent: photo.likes,
   });
+
+  if (!photoLike.likedByUser) {
+    photoLike.classList.add('photo__like_o');
+  }
 
   const photoDownload = createElem('a', {
     className: 'photo__download',
